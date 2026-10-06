@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gamer-dark: #0a0a0f;
+  --color-gamer-darker: #050508;
+  --color-gamer-gray: #1a1a24;
+  --color-gamer-light-gray: #2a2a3a;
+  --color-gamer-accent: #00f0ff;
+  --color-gamer-accent-dim: #0080ff;
+  --color-gamer-success: #00ff88;
+  --color-gamer-danger: #ff0055;
+  --color-gamer-warning: #ffaa00;
+  --font-family-gamer: 'Orbitron', 'Segoe UI', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-gamer-darker text-white font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(0, 240, 255, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(0, 128, 255, 0.03) 0%, transparent 50%);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0f;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a3a;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a4a;
+  }
+}
+
+@layer components {
+  .gamer-card {
+    @apply bg-gamer-gray/80 backdrop-blur-sm border border-gamer-light-gray/50 rounded-xl;
+    box-shadow:
+      0 0 20px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .gamer-btn {
+    @apply px-6 py-3 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all duration-300;
+    @apply bg-gamer-accent/10 border border-gamer-accent/30 text-gamer-accent;
+    @apply hover:bg-gamer-accent/20 hover:border-gamer-accent/60 hover:shadow-[0_0_20px_rgba(0,240,255,0.3)];
+    @apply active:scale-95;
+  }
+
+  .gamer-btn-danger {
+    @apply bg-gamer-danger/10 border-gamer-danger/30 text-gamer-danger;
+    @apply hover:bg-gamer-danger/20 hover:border-gamer-danger/60 hover:shadow-[0_0_20px_rgba(255,0,85,0.3)];
+  }
+
+  .gamer-btn-success {
+    @apply bg-gamer-success/10 border-gamer-success/30 text-gamer-success;
+    @apply hover:bg-gamer-success/20 hover:border-gamer-success/60 hover:shadow-[0_0_20px_rgba(0,255,136,0.3)];
+  }
+
+  .gamer-input {
+    @apply w-full px-4 py-3 bg-gamer-darker/80 border border-gamer-light-gray/50 rounded-lg text-white;
+    @apply focus:outline-none focus:border-gamer-accent/60 focus:shadow-[0_0_15px_rgba(0,240,255,0.15)];
+    @apply placeholder:text-gray-500 transition-all duration-300;
+  }
+
+  .gamer-title {
+    @apply text-2xl font-bold uppercase tracking-widest;
+    background: linear-gradient(135deg, #ffffff 0%, #00f0ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .scan-line {
+    @apply absolute w-full h-0.5 bg-gamer-accent;
+    box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+    animation: scan 2s ease-in-out infinite;
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+}
+
+@keyframes scan {
+  0%, 100% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  50% { top: calc(100% - 2px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(0, 240, 255, 0.4); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

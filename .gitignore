@@ -1,0 +1,54 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Bases de datos con datos REALES: NO se suben al repositorio.
+# control-acceso.db contiene 57 personas con sus RUT, claves de acceso,
+# tokens de sesion y fotos. Como todo esta en un solo archivo, basta con
+# excluir el archivo.
+#
+# En su lugar se sube control-acceso-vacio.db, que tiene la MISMA
+# estructura pero cero registros. Quien clone el proyecto puede abrirla
+# y ver como funciona el sistema sin datos de personas.
+#
+# Para trabajar con datos en tu equipo:
+#   1. copia control-acceso-vacio.db  ->  control-acceso.db
+#   2. ejecuta: npm run migrate   (si tienes datos en localStorage)
+
+data/control-acceso.db
+data/control-acceso.db-journal
+data/control-acceso.db-wal
+data/control-acceso.db-shm
+
+# Bases de prueba y respaldos
+data/demo.db
+data/respaldo-antes.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+data/*.db-journal*
+
+# OJO: esta linea es la que hace que la base vacia SI se suba.
+# Si la quitas, el repositorio se queda sin base de ejemplo.
+!data/control-acceso-vacio.db
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

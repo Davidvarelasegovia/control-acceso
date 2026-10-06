@@ -1,0 +1,17 @@
+{
+  "name": "Control de Acceso",
+  "short_name": "ControlAcceso",
+  "description": "Sistema de Control de Acceso con funcionalidad Offline",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
